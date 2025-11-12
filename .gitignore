@@ -1,7 +1,8 @@
 # Ignore rag2.py
 rag2.py
 extract2.py
-lang.py
+lang.ipynb
 .env
 rag.py
 venv/
+__pycache__/
