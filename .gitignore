@@ -1,0 +1,7 @@
+# Ignore rag2.py
+rag2.py
+extract2.py
+lang.py
+.env
+rag.py
+venv/

@@ -1,0 +1,8 @@
+2. Campuses
+NUST operates a multi-campus system across Pakistan. Its main campus is located in Islamabad, and 5 campuses in total.
+Campus | Location
+Islamabad | Sector H-12, Islamabad, Pakistan
+Rawalpindi Campus | Military College of Signals (MCS), Rawalpindi
+Risalpur Campus | College of Aeronautical Engineering (CAE), Risalpur
+Karachi Campus | Pakistan Navy Engineering College (PNEC), Karachi
+Quetta Campus | College of Electrical and Mechanical Engineering (CEME) regional extension
