@@ -1,7 +1,3 @@
-"""
-Streamlit Frontend for Multi-University RAG System
-"""
-
 import streamlit as st
 from backend import process_query
 
