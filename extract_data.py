@@ -11,30 +11,17 @@ BASE_DATA_DIR = r"D:\UniAgent\Data"
 CHUNKS_BASE_DIR = r"D:\UniAgent\Chunks"
 VECTOR_DB_BASE_DIR = r"D:\UniAgent\VectorDBs"
 
-# Adjust these according to your LLM/token needs
+
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 100
 
-# ------------------------
-# HELPER FUNCTIONS
-# -------------------------
-
-import os
-from docx import Document as DocxDocument
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_core.documents import Document
 
 # Define chunk constants
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 50
 
 def extract_chunks_from_docx(file_path, university_name):
-    """
-    Extracts Word document content into chunks:
-    - Each heading + its content (including tables) becomes one chunk.
-    - Long sections are split by RecursiveCharacterTextSplitter.
-    - Returns a list of LangChain Document objects with metadata.
-    """
+
     doc = DocxDocument(file_path)
     chunks = []
 
@@ -43,7 +30,7 @@ def extract_chunks_from_docx(file_path, university_name):
 
     # Iterate through all elements in the document (paragraphs + tables)
     for block in doc.element.body:
-        if block.tag.endswith("p"):  # Paragraph
+        if block.tag.endswith("p"):  # Paragraoph
             para = block
             text = para.text.strip() if hasattr(para, "text") else ""
             if not text:
@@ -112,10 +99,6 @@ def extract_chunks_from_docx(file_path, university_name):
 
 
 def create_chunks_and_vector_db(university_name, docs_folder):
-    """
-    Extracts chunks from all docs in a folder, splits large chunks, and creates a FAISS vector DB.
-    Stores chunks and DB in separate folders per university.
-    """
     # Step 1: Extract chunks from all documents
     all_chunks = []
     for file in os.listdir(docs_folder):
@@ -161,9 +144,7 @@ def create_chunks_and_vector_db(university_name, docs_folder):
 
     print(f"[{university_name}] Vector DB saved at {vector_db_path}")
 
-# -------------------------
-# MAIN
-# -------------------------
+
 if __name__ == "__main__":
     os.makedirs(CHUNKS_BASE_DIR, exist_ok=True)
     os.makedirs(VECTOR_DB_BASE_DIR, exist_ok=True)
